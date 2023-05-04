@@ -1,0 +1,5 @@
+- Client Linux, serveur d'hébergement et serveur de sauvegarde sous debian 11 
+
+- Client Windows sous Windows 10
+
+- Pare-feu sous Pfsense
