@@ -8,7 +8,100 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello World !</h1>
-    
+    <div class="Titre">
+        <h1>Projet B1 Infra</h1>
+    </div>
+    <div class="txt-1">
+        Ce projet consiste en la mise en place d'un système d'information pour une petite entreprise, qui inclut la mise en place d'un réseau, de serveurs, de clients et de services. L'objectif principal du projet est de proposer une architecture de système d'information cohérente et efficace pour l'entreprise, permettant notamment l'hébergement et la sauvegarde de leur site web.
+        <br>
+        <br>
+        Le contexte de ce projet est celui d'une entreprise souhaitant disposer d'un système d'information fiable, performant et sécurisé. L'objectif est de fournir à l'entreprise les outils et les services nécessaires à la réalisation de ses activités quotidiennes, tout en veillant à la protection des données et des informations de l'entreprise.
+    </div>
+    <div class="Titre-2">
+        <h2>Architecture Générale</h2>
+    </div>
+    <div class="archi">
+        <div class="txt-2">
+            Un pare-feu : Il s'agit d'un dispositif de sécurité permettant de protéger le réseau contre les attaques externes et internes. Il inclut des fonctionnalités telles que le filtrage réseau, le routage, le DHCP et le DNS.
+            <br><br>
+            Deux clients : Un client Windows et un client Linux. Ces machines permettent aux utilisateurs de l'entreprise d'accéder aux différents services proposés par le système d'information, tels que la consultation des données, la création de fichiers, etc.
+            <br><br>
+            Deux serveurs Linux : Le premier serveur est dédié à la sauvegarde des fichiers du site web, tandis que le deuxième sert d'hôte pour le site web. Ces serveurs offrent des services tels que le stockage de données, l'hébergement de sites web et la sauvegarde de données.
+            <br><br>
+            L'ensemble de ces éléments est interconnecté via un réseau, avec un schéma réseau qui permet de visualiser l'ensemble de l'architecture.
+        </div>
+        <img src="Documents annexes/Schéma réseau.jpeg" alt="">
+    </div>
+    <div class="Titre-2">
+        <h2>Plan d'adressage</h2>
+        <img src="Documents annexes/Plan d'adressage.png" alt="" class="img-1">
+    </div>
+    <div class="Titre-2">
+        <h2>Configuration des serveurs</h2>
+    </div>
+    <div class="txt-3">
+        <h3>Serveur de sauvegarde :</h3>
+        <br>
+        Le serveur de sauvegarde Linux est chargé de stocker des copies de sauvegarde des fichiers du site web de l'entreprise. Ce serveur est généralement configuré avec le système d'exploitation Ubuntu ou Debian et les services installés sont :
+        <div class="soustxt-1">
+            <br>
+            Système de fichiers : Le système de fichiers est configuré avec un espace de stockage suffisant pour stocker toutes les données de sauvegarde nécessaires.
+            <br><br>
+            Serveur SSH : Le serveur SSH est installé et configuré pour permettre aux utilisateurs autorisés de se connecter au serveur à distance.
+            <br><br>
+            Planification des sauvegardes : Les sauvegardes sont automatisées à l'aide d'un logiciel tel que rsync ou tar. Le planning des sauvegardes est configuré pour effectuer des sauvegardes régulières, par exemple toutes les nuits.
+            <br><br>
+        </div>
+        <h3>Serveur web :</h3>
+        <br>
+        Le serveur web Linux est configuré pour héberger le site web de l'entreprise. Il est généralement configuré avec le système d'exploitation Ubuntu ou Debian et les services installés sont :
+        <div class="soustxt-1">
+            <br>
+            Serveur web Apache ou Nginx : Le serveur web est configuré pour héberger le site web de l'entreprise. Le serveur est généralement configuré avec un certificat SSL pour garantir une connexion sécurisée.
+            <br><br>
+            Base de données : Une base de données est configurée pour stocker les données du site web. MySQL est un exemple couramment utilisé pour ce type de configuration.
+            <br><br>
+            Serveur SSH : Le serveur SSH est installé et configuré pour permettre aux utilisateurs autorisés de se connecter au serveur à distance.
+        </div>
+    </div>
+    <div class="Titre-2">
+        <h2>Configuration des clients</h2>
+    </div>
+    <div class="txt-3">
+        <h3>Configuration du client Windows :</h3>
+        <br>
+        Installation de Windows 10 Professionnel sur la machine.
+        <br><br>
+        Configuration des paramètres de sécurité, tels que le pare-feu et la sécurité du réseau.
+        <br><br>
+        Installation des applications nécessaires, notamment :
+        <div class="soustxt-1">
+            <br>
+            Le navigateur web (Google Chrome ou Mozilla Firefox).
+            <br><br>
+            Le client FTP (FileZilla) pour transférer les fichiers sur le serveur web.
+            <br><br>
+            Le client SSH (PuTTY) pour se connecter au serveur de sauvegarde et administrer le système à distance.
+            <br><br>
+        </div>
+        <h3>Configuration du client Linux :</h3>
+        <br>
+        Installation de la distribution Ubuntu Desktop 20.04 LTS sur la machine.
+        <br><br>
+        Configuration des paramètres de sécurité, tels que le pare-feu et la sécurité du réseau.
+        <br><br>
+        Installation des applications nécessaires, notamment :
+        <div class="soustxt-1">
+            <br>
+            Le navigateur web (Google Chrome ou Mozilla Firefox).
+            <br><br>
+            Le client FTP (FileZilla) pour transférer les fichiers sur le serveur web.
+            <br><br>
+            Le client SSH (OpenSSH) pour se connecter au serveur de sauvegarde et administrer le système à distance.
+            <br><br>
+            Le logiciel de traitement de texte LibreOffice pour la rédaction des documents.
+        </div>
+    </div>
 </body>
+<footer></footer>
 </html>
