@@ -40,29 +40,22 @@
         <h2>Configuration des serveurs</h2>
     </div>
     <div class="txt-3">
-        <h3>Serveur de sauvegarde :</h3>
-        <br>
-        Le serveur de sauvegarde Linux est chargé de stocker des copies de sauvegarde des fichiers du site web de l'entreprise. Ce serveur est généralement configuré avec le système d'exploitation Ubuntu ou Debian et les services installés sont :
-        <div class="soustxt-1">
-            <br>
-            Système de fichiers : Le système de fichiers est configuré avec un espace de stockage suffisant pour stocker toutes les données de sauvegarde nécessaires.
-            <br><br>
-            Serveur SSH : Le serveur SSH est installé et configuré pour permettre aux utilisateurs autorisés de se connecter au serveur à distance.
-            <br><br>
-            Planification des sauvegardes : Les sauvegardes sont automatisées à l'aide d'un logiciel tel que rsync ou tar. Le planning des sauvegardes est configuré pour effectuer des sauvegardes régulières, par exemple toutes les nuits.
-            <br><br>
-        </div>
         <h3>Serveur web :</h3>
         <br>
-        Le serveur web Linux est configuré pour héberger le site web de l'entreprise. Il est généralement configuré avec le système d'exploitation Ubuntu ou Debian et les services installés sont :
-        <div class="soustxt-1">
-            <br>
-            Serveur web Apache ou Nginx : Le serveur web est configuré pour héberger le site web de l'entreprise. Le serveur est généralement configuré avec un certificat SSL pour garantir une connexion sécurisée.
-            <br><br>
-            Base de données : Une base de données est configurée pour stocker les données du site web. MySQL est un exemple couramment utilisé pour ce type de configuration.
-            <br><br>
-            Serveur SSH : Le serveur SSH est installé et configuré pour permettre aux utilisateurs autorisés de se connecter au serveur à distance.
-        </div>
+        Le serveur d'hébergement web est un serveur Linux sous Debian 11, qui héberge le site web du projet. Il est configuré de la manière suivante :
+        <br> <br>
+        Le serveur web est configuré avec le logiciel Apache2, qui permet de gérer les requêtes HTTP et HTTPS.
+        <br>
+
+        <br>
+        <h3>Serveur de sauvegarde :</h3>
+        <br>
+        Le serveur de sauvegarde est un serveur Linux sous Debian 11, qui est dédié à la sauvegarde des fichiers du site web. Il est configuré de la manière suivante :
+        <br> <br>
+        Rsync est installé et est utilisé pour la sauvegarde des fichiers du site web. Il s'agit d'un outil de synchronisation de fichiers qui permet de copier les fichiers d'un serveur à un autre.
+        Ici l'accès au serveur de sauvegarde s'effectue en SSH avec clé privée.
+
+
     </div>
     <div class="Titre-2">
         <h2>Configuration des clients</h2>
@@ -72,35 +65,33 @@
         <br>
         Installation de Windows 10 Professionnel sur la machine.
         <br><br>
-        Configuration des paramètres de sécurité, tels que le pare-feu et la sécurité du réseau.
+        Configuration des paramètres réseau en attribuant une adresse IP statique :
         <br><br>
-        Installation des applications nécessaires, notamment :
+        <img src="Documents%20annexes/config%20reseau%20client%20windows.png" alt="reseau windows">
+        <br><br>
         <div class="soustxt-1">
-            <br>
-            Le navigateur web (Google Chrome ou Mozilla Firefox).
-            <br><br>
-            Le client FTP (FileZilla) pour transférer les fichiers sur le serveur web.
-            <br><br>
-            Le client SSH (PuTTY) pour se connecter au serveur de sauvegarde et administrer le système à distance.
-            <br><br>
+
         </div>
+        <br>
         <h3>Configuration du client Linux :</h3>
         <br>
-        Installation de la distribution Ubuntu Desktop 20.04 LTS sur la machine.
+        Installation de la distribution Debian 11 sur la machine.
         <br><br>
-        Configuration des paramètres de sécurité, tels que le pare-feu et la sécurité du réseau.
+        Chaque machine Linux est configurée comme ci-dessous avec une adresse IP différente à chaque fois et ayant comme passerelle par défaut le pare-feu.
+        Configuration des paramètres réseau en attribuant une adresse IP statique :
         <br><br>
-        Installation des applications nécessaires, notamment :
-        <div class="soustxt-1">
-            <br>
-            Le navigateur web (Google Chrome ou Mozilla Firefox).
-            <br><br>
-            Le client FTP (FileZilla) pour transférer les fichiers sur le serveur web.
-            <br><br>
-            Le client SSH (OpenSSH) pour se connecter au serveur de sauvegarde et administrer le système à distance.
-            <br><br>
-            Le logiciel de traitement de texte LibreOffice pour la rédaction des documents.
+        <img src="Documents%20annexes/config%20reseau%20client%20linux.png" alt="reseau linux">
+
+        <div class="Titre-2">
+            <h2>Configuration du site web</h2>
         </div>
+        <br>
+        Le site web est hébergé sur le serveur d'hébergement grâce à Apache que l'on installe avec les commandes suivantes :<br>
+        <br>sudo apt update
+        <br>sudo apt install apache2. <br><br>Il est accessible depuis les autres machines du réseau via l'adresse IP du serveur web.
+        Le site se situe dans le répertoire /var/www/html/Burle_Liere_B1_Infra où l'on entre les commandes suivantes afin de permettre au serveur d'accéder au répertoire :<br><br>
+        sudo chown -R www-data:www-data /var/www/html/Burle_Liere_B1_Infra
+        <br>sudo chmod -R 755 /var/www/html/Burle_Liere_B1_Infra
     </div>
 </body>
 <footer></footer>
