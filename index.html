@@ -82,9 +82,46 @@
         <br><br>
         <img src="Documents%20annexes/config%20reseau%20client%20linux.png" alt="reseau linux">
 
-        <div class="Titre-2">
-            <h2>Configuration du site web</h2>
-        </div>
+    </div>
+    <div class="Titre-2">
+        <h2>Sauvegarde et restauration</h2>
+    </div>
+    <div class="txt">
+        <h3>Méthode de sauvegarde et de restauration des fichiers sources du site web :</h3>
+        <br>
+        1 - La sauvegarde des fichiers sources du site web est effectuée à l'aide d'un script shell (backup_site_web.sh) qui utilise rsync pour copier les fichiers du serveur d'hébergement au serveur de sauvegarde.
+        <br><br>
+        2 - Le script se connecte au serveur d'hébergement via SSH en utilisant un nom d'utilisateur et un mot de passe.
+        <br><br>
+        3 - Les fichiers sont copiés dans un répertoire de sauvegarde sur le serveur de sauvegarde, avec un nom de dossier basé sur la date et l'heure actuelles (format YYYYMMDD-HHMMSS).
+        <br><br>
+        4 - Pour restaurer le site web à partir d'une sauvegarde, il suffit de copier les fichiers sauvegardés dans le répertoire /var/www/html du serveur d'hébergement.
+        <br><br>
+        <h3>Automatisation de la sauvegarde :</h3>
+        <br>
+        1 - Pour automatiser la sauvegarde quotidienne, nous avons configuré une tâche cron qui exécute le script backup_site_web.sh tous les jours à minuit.
+        <br><br>
+        2 - La tâche cron a été ajoutée en utilisant la commande crontab -e et en ajoutant la ligne suivante :
+        <br><br>
+        0 0 * * * /chemin/vers/backup_site_web.sh
+        <br><br>
+        <h3>Documentation pour la restauration du site web :</h3>
+        <br>
+        1 - Identifiez la sauvegarde que vous souhaitez restaurer en vérifiant les répertoires de sauvegarde dans /backups/site-web/ sur le serveur de sauvegarde.
+        <br><br>
+        2 - Utilisez rsync pour copier les fichiers de la sauvegarde sélectionnée vers le répertoire /var/www/html du serveur d'hébergement. Par exemple, pour restaurer une sauvegarde avec le timestamp YYYYMMDD-HHMMSS, exécutez la commande suivante :
+        <br><br>
+        rsync -avz --delete --progress -e 'sshpass -p "password" ssh -o StrictHostKeyChecking=no' /backups/site-web/YYYYMMDD-HHMMSS/ user@192.168.1.101:/var/www/html/
+        <br><br>
+        Remplacez "YYYYMMDD-HHMMSS" par le nom du répertoire de sauvegarde, "password" par le mot de passe SSH du serveur d'hébergement et "user" par le nom d'utilisateur SSH du serveur d'hébergement.
+        <br><br>
+        3 - Vérifiez que le site web est correctement restauré en accédant au site via un navigateur ou en examinant les fichiers du répertoire /var/www/html sur le serveur d'hébergement.
+    </div>
+
+    <div class="Titre-2">
+        <h2>Configuration du site web</h2>
+    </div>
+    <div class="txt">
         <br>
         Le site web est hébergé sur le serveur d'hébergement grâce à Apache que l'on installe avec les commandes suivantes :<br>
         <br>sudo apt update
